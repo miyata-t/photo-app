@@ -9,6 +9,8 @@ class PhotosController < ApplicationController
     # NOTE: 同じ名前のファイル名がきた場合でもユニークな識別子になるようuuid付与
     file_name = photo_params[:image] ? SecureRandom.uuid + '_' + File.extname(photo_params[:image].original_filename) : nil
     @photo = Photo.new(user_id: current_user.id, title: photo_params[:title], file_name:)
+    return render :new, status: :unprocessable_entity if @photo.invalid?
+
     save_file(file_name)
     @photo.save!
 

@@ -1,5 +1,13 @@
 <h1>写真アップロード</h1>
 
+<% if @photo.present? %>
+  <div class="error-display">
+    <% @photo.errors.messages.values.flatten.each do |error| %>
+      <li class="error-msg" style="color:red;"><%= error %>
+    <% end %>
+  </div>
+<% end %>
+
 <%= form_with url: photos_path do |f| %>
   <%= f.label :title, 'タイトル' %>
   <%= f.text_field :title %><br>
