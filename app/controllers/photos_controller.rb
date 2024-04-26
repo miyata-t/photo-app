@@ -1,7 +1,9 @@
 class PhotosController < ApplicationController
   before_action :require_login, only: %i[index new create]
 
-  def index;end
+  def index
+    @photos = Photo.where(user_id: current_user.id).order(created_at: "DESC")
+  end
 
   def new;end
 

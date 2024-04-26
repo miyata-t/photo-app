@@ -17,3 +17,9 @@
 .error-msg {
     color:red;
   }
+
+div.photo {
+  float: left;
+  padding-right: 20px;
+  text-align: center;
+  }

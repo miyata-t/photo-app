@@ -1,2 +1,10 @@
 <h1>写真一覧</h1>
 <%= link_to '写真をアップロード', new_photo_path %>
+<br>
+
+<% @photos.each do |photo| %>
+  <div class="photo">
+    <p><%= photo.title %></p>
+    <%= image_tag "/photo/#{current_user.id}/#{photo.file_name}" %>
+  </div>
+<% end %>
