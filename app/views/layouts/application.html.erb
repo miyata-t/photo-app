@@ -11,6 +11,9 @@
   </head>
 
   <body>
+    <% if login? %>
+      <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete } %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -13,4 +13,8 @@ module SessionsHelper
   def login?
     current_user.present?
   end
+
+  def logout
+    session.delete(:user_id)
+  end
 end
