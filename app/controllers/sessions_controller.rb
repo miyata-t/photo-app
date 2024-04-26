@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :logged_in, only: %i[new create]
+
   def new;end
 
   def create
@@ -36,5 +38,9 @@ class SessionsController < ApplicationController
 
   def login_params
     params.permit(:name, :password)
+  end
+
+  def logged_in
+    redirect_to photos_path  if login?
   end
 end
