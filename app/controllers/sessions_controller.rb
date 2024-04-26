@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     end
 
     if user && user.authenticate(password)
+      login(user)
       redirect_to photos_path
     else
       @errors << "ユーザーIDもしくはパスワードが誤っています"
