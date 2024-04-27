@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   resources :photos, only: %i[index new create]
   get 'oauth/callback' => 'oauth#callback'
+  resources :tweets, only: %i[create]
 end

@@ -2,7 +2,7 @@
 <% if authenticated? %>
   MyTweetAppと連携中
 <% else %>
-<%= link_to 'MyTweetAppと連携', my_tweet_app_auth_url %>
+  <%= link_to 'MyTweetAppと連携', my_tweet_app_auth_url %>
 <% end %>
 <br>
 <%= link_to '写真をアップロード', new_photo_path %>
@@ -11,6 +11,9 @@
 <% @photos.each do |photo| %>
   <div class="photo">
     <p><%= photo.title %></p>
-    <%= image_tag "/photo/#{current_user.id}/#{photo.file_name}" %>
+    <p><%= image_tag "/photo/#{current_user.id}/#{photo.file_name}" %></p>
+    <% if authenticated? %>
+      <%= button_to 'ツイートする', { controller: 'tweets', action: 'create' }, { method: :post, params: { title: photo.title, image_url: local_image_url("photo/#{current_user.id}/#{photo.file_name}") } } %>
+    <% end %>
   </div>
 <% end %>
