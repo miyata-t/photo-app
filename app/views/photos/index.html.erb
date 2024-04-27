@@ -1,5 +1,9 @@
 <h1>写真一覧</h1>
+<% if authenticated? %>
+  MyTweetAppと連携中
+<% else %>
 <%= link_to 'MyTweetAppと連携', my_tweet_app_auth_url %>
+<% end %>
 <br>
 <%= link_to '写真をアップロード', new_photo_path %>
 <br>

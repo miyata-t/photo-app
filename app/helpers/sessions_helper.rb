@@ -18,4 +18,8 @@ module SessionsHelper
     session.delete(:user_id)
     session.delete(:access_token)
   end
+
+  def authenticated?
+    session[:access_token].present?
+  end
 end
