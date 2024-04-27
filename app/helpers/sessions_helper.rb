@@ -16,5 +16,6 @@ module SessionsHelper
 
   def logout
     session.delete(:user_id)
+    session.delete(:access_token)
   end
 end
