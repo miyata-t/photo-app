@@ -1,0 +1,8 @@
+development:
+  my_tweet:
+    base_url: <%= ENV['MY_TWEET_BASE_URL'] %>
+    authorization_path: <%= ENV['AUTHORIZATION_PATH'] %>
+    access_token_path: <%= ENV['ACCESS_TOKEN_PATH'] %>
+    client_id: <%= ENV['CLIENT_ID'] %>
+    client_secret: <%= ENV['CLIENT_SECRET'] %>
+    redirect_uri: 'http://localhost:3000/oauth/callback'
