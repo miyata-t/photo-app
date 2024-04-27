@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Ruby version
+3.2.2
 
-Things you may want to cover:
+### Rails version
+7.0.8.1
 
-* Ruby version
+### Setup
 
-* System dependencies
+```
+bundle install
+bundle exec rake db:create db:migrate db:seed
 
-* Configuration
+# exampleコピー後、設定は各自で書き換えてください
+cp config/setting_example.yml config/setting.yml
 
-* Database creation
+bundle exec rails s
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
