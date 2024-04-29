@@ -5,7 +5,7 @@ module SessionsHelper
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  rescue ActiveRecord::RecordNotFound => e
+  rescue ActiveRecord::RecordNotFound
     logger.error "ユーザーが見つかりませんでした。user_id: #{session[:user_id]}"
     nil
   end
