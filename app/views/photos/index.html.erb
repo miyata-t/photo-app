@@ -27,7 +27,7 @@
     <p><%= photo.title %></p>
     <p><%= image_tag photo.image_path %></p>
     <% if authenticated? %>
-      <%= button_to 'ツイートする', { controller: 'tweets', action: 'create' }, { method: :post, params: { title: photo.title, image_url: local_image_url("photo/#{current_user.id}/#{photo.file_name}") } } %>
+      <%= button_to 'ツイートする', { controller: 'tweets', action: 'create' }, { method: :post, params: { photo_id: photo.id } } %>
     <% end %>
   </div>
 <% end %>
