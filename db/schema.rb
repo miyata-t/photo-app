@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_26_102921) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_29_113039) do
   create_table "photos", force: :cascade do |t|
     t.integer "user_id"
     t.string "title", limit: 30
@@ -26,4 +26,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_26_102921) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "photos", "users"
 end
