@@ -13,13 +13,7 @@ class SessionsController < ApplicationController
 
     return render :new, status: :unprocessable_entity if @errors.present?
 
-    begin
-      user = User.find_by!(name: user_name)
-    rescue ActiveRecord::RecordNotFound
-      @errors << 'ユーザーIDもしくはパスワードが誤っています'
-      return render :new, status: :unprocessable_entity
-    end
-
+    user = User.find_by(name: user_name)
     if user && user.authenticate(password)
       login(user)
       redirect_to photos_path
