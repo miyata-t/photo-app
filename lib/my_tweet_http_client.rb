@@ -32,7 +32,7 @@ class MyTweetHttpClient
     http.use_ssl = false
     res = http.post(uri.path, params.to_json, headers)
     raise ClientError.new('成功以外のレスポンスが返されました。') if res.code != "201"
-  rescue => e
+  rescue StandardError => e
     Rails.logger.error "ツイートに失敗しました。ErrorClass: #{e.class}, backtrace: #{e.backtrace}"
 
     raise e

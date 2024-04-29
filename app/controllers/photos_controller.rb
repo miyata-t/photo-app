@@ -2,10 +2,10 @@ class PhotosController < ApplicationController
   before_action :require_login, only: %i[index new create]
 
   def index
-    @photos = Photo.where(user_id: current_user.id).order(created_at: "DESC")
+    @photos = Photo.where(user_id: current_user.id).order(created_at: 'DESC')
   end
 
-  def new;end
+  def new; end
 
   def create
     # NOTE: 同じ名前のファイル名がきた場合でもユニークな識別子になるようuuid付与
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
     @photo.save!
 
     redirect_to photos_path
-  rescue => e
+  rescue StandardError => e
     logger.error "画像保存の処理の中でエラーが起きました。ErrorClass: #{e.class}, backtrace: #{e.backtrace}"
     FileUtils.rm(output_path(file_name)) if File.exist?(output_path(file_name))
 
