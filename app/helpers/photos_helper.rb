@@ -4,8 +4,4 @@ module PhotosHelper
 
     "#{settings[:base_url]}#{settings[:authorization_path]}?response_type=code&client_id=#{settings[:client_id]}&redirect_uri=#{settings[:redirect_uri]}&scope=write_tweet"
   end
-
-  def local_image_url(path)
-    root_url + path
-  end
 end
