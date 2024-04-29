@@ -6,7 +6,7 @@ class MyTweetHttpClient
   attr_reader :settings, :base_url, :client_id, :client_secret, :redirect_uri
 
   def initialize
-    @settings = Rails.application.config_for(:setting, env: Rails.env)[:my_tweet]
+    @settings = Rails.application.config_for(:setting)[:my_tweet]
     @base_url = settings[:base_url]
     @client_id = settings[:client_id]
     @client_secret = settings[:client_secret]

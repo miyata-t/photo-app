@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
       flash[:error] = '存在しない画像をツイートしようとしています'
       redirect_to photos_path
     end
-    settings = Rails.application.config_for(:setting, env: Rails.env)[:photo_app]
+    settings = Rails.application.config_for(:setting)[:photo_app]
     client = MyTweetHttpClient.new
     client.tweet_request(title: photo.title, image_url: settings[:base_url] + photo.image_path, access_token: session[:access_token])
 
