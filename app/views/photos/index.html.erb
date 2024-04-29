@@ -1,4 +1,18 @@
 <h1>写真一覧</h1>
+<% if flash[:notice] %>
+  <div class="notice-area">
+    <%= flash[:notice] %>
+  </div>
+  <br>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="error-area">
+    <%= flash[:error] %>
+  </div>
+  <br>
+<% end %>
+
 <% if authenticated? %>
   MyTweetAppと連携中
 <% else %>

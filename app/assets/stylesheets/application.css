@@ -18,6 +18,14 @@
     color:red;
   }
 
+.notice-area {
+  background-color: #DDFFDD
+  }
+
+.error-area {
+  background-color: #F0B9B9
+  }
+
 div.photo {
   float: left;
   padding-right: 20px;
