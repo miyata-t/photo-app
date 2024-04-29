@@ -31,7 +31,7 @@ class MyTweetHttpClient
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = false
     res = http.post(uri.path, params.to_json, headers)
-    raise ClientError.new('成功以外のレスポンスが返されました。') if res.code != "201"
+    raise ClientError.new("成功以外のレスポンスが返されました。status_code: #{res.code}, message: #{res.message}") if res.code != "201"
   rescue ClientError => e
     raise e
   rescue StandardError => e
