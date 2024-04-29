@@ -4,10 +4,12 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    return @current_user if instance_variable_defined?(:@current_user)
+
+    @current_user = session[:user_id] ? User.find(session[:user_id]) : nil
   rescue ActiveRecord::RecordNotFound
     logger.error "ユーザーが見つかりませんでした。user_id: #{session[:user_id]}"
-    nil
+    @current_user = nil
   end
 
   def login?
